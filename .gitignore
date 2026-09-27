@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# VS Code & IDEs
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs & Temporary Files
+*.log
+*.tmp
+
+# Large raw datasets (>100MB cannot be pushed to GitHub)
+dataset/train/*.tsv
+dataset/test/*.tsv
+dataset/processed/*.tsv
+!dataset/**/.gitkeep

@@ -1,0 +1,56 @@
+================================================================================
+BUSINESS ENTITY RESOLUTION - MODEL EVALUATION REPORT
+================================================================================
+Model: Random Forest Classifier (200 Estimators)
+Dataset: Enterprise Business Entity Resolution Benchmark (Sources S1, S2, S3)
+Evaluation Type: 5-Fold Stratified Cross-Validation & Holdout Test Split
+
+--------------------------------------------------------------------------------
+1. PERFORMANCE METRICS
+--------------------------------------------------------------------------------
+Accuracy        : 99.33%
+Precision       : 99.11%
+Recall          : 99.55%
+F1-Score        : 99.33%
+5-Fold CV Mean  : 99.10% (+/- 0.43%)
+
+--------------------------------------------------------------------------------
+2. CONFUSION MATRIX (Sample Holdout of 450 Pairs)
+--------------------------------------------------------------------------------
+                 Predicted Non-Match (0)   Predicted Match (1)
+Actual (0)                 223 (TN)                 2 (FP)
+Actual (1)                   1 (FN)               224 (TP)
+
+True Negatives  (TN) : 223 (Correctly identified distinct non-duplicate entities)
+False Positives (FP) :   2 (Rare edge cases with identical multi-tenant address)
+False Negatives (FN) :   1 (Severe abbreviation discrepancy)
+True Positives  (TP) : 224 (Accurately unified true duplicate records)
+
+--------------------------------------------------------------------------------
+3. FEATURE IMPORTANCE RANKING
+--------------------------------------------------------------------------------
+Rank   Feature Name                 Weight     Category
+#1     name_similarity              21.87%     Levenshtein Ratio
+#2     partial_ratio                19.93%     Fuzzy Substring Match
+#3     address_similarity           14.89%     Levenshtein Ratio
+#4     token_sort_ratio             13.71%     Permutation Invariant
+#5     token_set_ratio              11.18%     Noise Robust
+#6     common_word_count             8.88%     Lexical Overlap
+#7     city_match                    3.52%     Geographic Alignment
+#8     first_word_match              3.31%     Brand Anchor Token
+#9     last_word_match               1.02%     Category Suffix
+#10    address_length_difference     0.64%     Structural Delta
+#11    country_match                 0.51%     Jurisdiction Check
+#12    name_length_difference        0.50%     Structural Delta
+#13    state_match                   0.02%     State Boundary Check
+
+--------------------------------------------------------------------------------
+4. CANDIDATE BLOCKING SUMMARY (Module 3)
+--------------------------------------------------------------------------------
+Strategy              : Multi-Key Hybrid (Country + Soundex Phonetic Key)
+Candidate Pruning     : 99.91% search space reduction
+Effective Speedup     : 1,055x faster than exhaustive O(N^2) comparison
+
+Status: Production Ready | Competition Approved
+Author: Bhavana Vemireddy
+================================================================================
