@@ -28,3 +28,7 @@ dataset/train/*.tsv
 dataset/test/*.tsv
 dataset/processed/*.tsv
 !dataset/**/.gitkeep
+
+# Temporary generation directories
+output/temp_country/
+
