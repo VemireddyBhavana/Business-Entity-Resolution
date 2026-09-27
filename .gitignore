@@ -29,6 +29,12 @@ dataset/test/*.tsv
 dataset/processed/*.tsv
 !dataset/**/.gitkeep
 
-# Temporary generation directories
-output/temp_country/
+# Temporary generation directories & large outputs
+output/temp_*/
+output/candidate_pairs.tsv
+output/matching_results.tsv
+
+# Archives & submission packages
+*.zip
+*.tar.gz
 
