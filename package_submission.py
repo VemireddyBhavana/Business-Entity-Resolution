@@ -32,6 +32,9 @@ def package_submission(team_name="Bhavana_Vemireddy", zip_name=None):
         zipf.write("README.md", f"{code_prefix}README.md")
         zipf.write("requirements.txt", f"{code_prefix}requirements.txt")
         
+        if os.path.exists("generate_full_submission.py"):
+            zipf.write("generate_full_submission.py", f"{code_prefix}generate_full_submission.py")
+
         for root, dirs, files in os.walk("src"):
             for file in files:
                 if not file.endswith(('.pyc', '.pyo')):
